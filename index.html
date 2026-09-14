@@ -7,6 +7,7 @@
     <title>For Thomas ❤️</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,9 +16,6 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: Georgia, serif;
             background:
                 radial-gradient(circle at top, #3b1838, transparent 50%),
@@ -26,11 +24,19 @@
             overflow: hidden;
         }
 
+
+        /* =========================
+           BIRTHDAY SCREEN
+        ========================= */
+
         .screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             padding: 30px;
-            width: 100%;
-            max-width: 550px;
         }
 
         .intro {
@@ -62,7 +68,10 @@
             margin-bottom: 45px;
         }
 
-        /* CAKE */
+
+        /* =========================
+           CAKE
+        ========================= */
 
         .cake {
             position: relative;
@@ -101,12 +110,16 @@
             height: 25px;
             background: #ffe1eb;
             border-radius: 0 0 10px 10px;
+
             box-shadow:
                 55px 0 #ffe1eb,
                 110px 0 #ffe1eb;
         }
 
-        /* CANDLE */
+
+        /* =========================
+           CANDLE
+        ========================= */
 
         .candle {
             position: absolute;
@@ -116,6 +129,7 @@
             width: 16px;
             height: 60px;
             border-radius: 5px;
+
             background:
                 repeating-linear-gradient(
                     -45deg,
@@ -141,15 +155,22 @@
             z-index: 5;
             left: 86px;
             top: 0;
+
             width: 20px;
             height: 35px;
+
             background: #ffd45c;
+
             border-radius: 50% 50% 45% 45%;
+
             box-shadow:
                 0 0 12px #ffbd32,
                 0 0 35px #ff8c00;
+
             transform-origin: bottom center;
+
             animation: flicker 0.7s infinite alternate;
+
             transition: 0.5s ease;
         }
 
@@ -158,13 +179,17 @@
             position: absolute;
             left: 5px;
             bottom: 4px;
+
             width: 10px;
             height: 18px;
+
             background: #fff5bd;
+
             border-radius: 50%;
         }
 
         @keyframes flicker {
+
             from {
                 transform: rotate(-4deg) scale(1);
             }
@@ -172,19 +197,31 @@
             to {
                 transform: rotate(4deg) scale(1.08);
             }
+
         }
 
-        /* BUTTON */
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         button {
             border: none;
             padding: 15px 27px;
             border-radius: 40px;
+
             background: #ff8fb1;
+
             color: white;
+
             font-size: 15px;
+
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255,143,177,0.25);
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,143,177,0.25);
+
             transition: 0.3s;
         }
 
@@ -195,58 +232,91 @@
 
         .hint {
             margin-top: 13px;
+
             font-family: Arial, sans-serif;
+
             font-size: 11px;
+
             color: #927c8d;
         }
 
-        /* HIDDEN */
 
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* SUCCESS MESSAGE */
+        /* =========================
+           SUCCESS SCREEN
+        ========================= */
 
         #success {
+
             position: fixed;
+
             inset: 0;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
+
             padding: 30px;
+
             background: rgba(15,8,20,0.96);
+
             opacity: 0;
+
             pointer-events: none;
+
             transition: 1s ease;
+
+            z-index: 10;
         }
 
         #success.show {
+
             opacity: 1;
+
             pointer-events: auto;
         }
 
         #success h2 {
+
             font-size: clamp(35px, 10vw, 60px);
+
             margin-bottom: 15px;
+
             color: #ffb3cb;
         }
 
         #success p {
+
             font-family: Arial, sans-serif;
+
             color: #d9ccd5;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
         }
 
-        /* FLOATING HEARTS */
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
 
         .heart {
+
             position: fixed;
+
             bottom: -30px;
+
             color: rgba(255, 174, 202, 0.25);
+
             animation: float 9s linear infinite;
+
             font-size: 20px;
+
+            z-index: 2;
         }
 
         .heart:nth-child(1) {
@@ -264,6 +334,7 @@
         }
 
         @keyframes float {
+
             0% {
                 transform: translateY(0) rotate(0);
                 opacity: 0;
@@ -274,87 +345,827 @@
             }
 
             100% {
-                transform: translateY(-110vh) rotate(360deg);
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
                 opacity: 0;
             }
+
         }
+
+
+        /* =========================
+           LETTER SCREEN
+        ========================= */
+
+        #letterScreen {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            background:
+
+                radial-gradient(
+                    circle at top left,
+                    rgba(255,190,130,0.15),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #1a0c08,
+                    #3a1d10,
+                    #160b08
+                );
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: 1s ease;
+
+            z-index: 20;
+
+            overflow-y: auto;
+        }
+
+        #letterScreen.show {
+
+            opacity: 1;
+
+            pointer-events: auto;
+        }
+
+
+        /* =========================
+           LITTLE CANDLE LIGHT
+        ========================= */
+
+        .letter-light {
+
+            position: absolute;
+
+            top: 40px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 180px;
+
+            height: 180px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(255,190,90,0.25),
+                    transparent 70%
+                );
+
+            filter: blur(15px);
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+
+        .envelope-container {
+
+            position: relative;
+
+            width: min(360px, 90vw);
+
+            height: 240px;
+
+            cursor: pointer;
+
+            perspective: 1000px;
+
+            transition: 0.5s ease;
+
+            margin-top: 40px;
+        }
+
+        .envelope-container:hover {
+
+            transform: scale(1.03);
+        }
+
+        .envelope {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            bottom: 0;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #d7ae7d,
+                    #f0cf9d
+                );
+
+            border-radius: 5px;
+
+            box-shadow:
+
+                0 25px 50px
+                rgba(0,0,0,0.45);
+
+            overflow: hidden;
+        }
+
+
+        /* ENVELOPE FRONT */
+
+        .envelope::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left: 180px solid #e5bd8b;
+
+            border-top: 120px solid transparent;
+        }
+
+        .envelope::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-right: 180px solid #dcb381;
+
+            border-top: 120px solid transparent;
+        }
+
+
+        /* ENVELOPE FLAP */
+
+        .flap {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left: 180px solid transparent;
+
+            border-right: 180px solid transparent;
+
+            border-top: 125px solid #f1c997;
+
+            transform-origin: top;
+
+            transition:
+
+                transform 1s ease,
+
+                z-index 0.3s;
+
+            z-index: 5;
+        }
+
+
+        /* WAX SEAL */
+
+        .seal {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 100px;
+
+            transform: translateX(-50%);
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 35% 30%,
+                    #a91f25,
+                    #5c080b
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #f7b1a7;
+
+            font-size: 24px;
+
+            box-shadow:
+
+                inset 0 0 8px rgba(0,0,0,0.5),
+
+                0 5px 10px rgba(0,0,0,0.4);
+
+            z-index: 8;
+
+            transition: 0.8s ease;
+        }
+
+
+        /* =========================
+           THE PAPER
+        ========================= */
+
+        .letter-paper {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 20px;
+
+            transform:
+
+                translateX(-50%)
+
+                translateY(80px)
+
+                scaleY(0.2);
+
+            width: min(700px, 90vw);
+
+            min-height: 480px;
+
+            padding:
+
+                60px
+
+                clamp(25px, 6vw, 70px);
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #f5dfb8,
+                    #e6c68f
+                );
+
+            color: #4b2b1c;
+
+            border-radius: 4px;
+
+            box-shadow:
+
+                0 25px 60px
+
+                rgba(0,0,0,0.6);
+
+            opacity: 0;
+
+            transition:
+
+                1.5s ease;
+
+            z-index: 4;
+
+            text-align: left;
+
+            pointer-events: none;
+        }
+
+
+        /* PAPER TEXTURE */
+
+        .letter-paper::before {
+
+            content: "♥";
+
+            position: absolute;
+
+            top: 25px;
+
+            right: 35px;
+
+            font-size: 25px;
+
+            color: rgba(130,50,40,0.5);
+        }
+
+        .letter-paper::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border:
+
+                1px solid
+
+                rgba(120,70,40,0.25);
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           OPEN ANIMATION
+        ========================= */
+
+        .letter-open .flap {
+
+            transform: rotateX(180deg);
+
+            z-index: 1;
+        }
+
+        .letter-open .seal {
+
+            opacity: 0;
+
+            transform:
+
+                translateX(-50%)
+
+                scale(1.8)
+
+                rotate(20deg);
+        }
+
+        .letter-open .letter-paper {
+
+            opacity: 1;
+
+            transform:
+
+                translateX(-50%)
+
+                translateY(-80px)
+
+                scaleY(1);
+
+            z-index: 10;
+
+            pointer-events: auto;
+        }
+
+        .letter-open .envelope-container {
+
+            cursor: default;
+        }
+
+
+        /* =========================
+           LETTER TEXT
+        ========================= */
+
+        .letter-title {
+
+            text-align: center;
+
+            font-size:
+
+                clamp(28px, 7vw, 50px);
+
+            margin-bottom: 35px;
+
+            font-family:
+
+                "Brush Script MT",
+
+                "Segoe Script",
+
+                cursive;
+
+            color: #6e3427;
+        }
+
+        .letter-text {
+
+            font-family:
+
+                "Segoe Print",
+
+                "Comic Sans MS",
+
+                cursive;
+
+            font-size:
+
+                clamp(15px, 3vw, 19px);
+
+            line-height: 1.9;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .letter-signature {
+
+            text-align: right;
+
+            margin-top: 35px;
+
+            font-family:
+
+                "Brush Script MT",
+
+                cursive;
+
+            font-size: 28px;
+
+            color: #6e3427;
+        }
+
+
+        /* =========================
+           LETTER HINT
+        ========================= */
+
+        .open-hint {
+
+            margin-top: 25px;
+
+            font-family:
+
+                "Segoe Print",
+
+                cursive;
+
+            color: #f5c8a0;
+
+            font-size: 16px;
+
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%, 100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .letter-paper {
+
+                min-height: 500px;
+
+                padding: 45px 25px;
+            }
+
+            .letter-open .letter-paper {
+
+                transform:
+
+                    translateX(-50%)
+
+                    translateY(-40px)
+
+                    scaleY(1);
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+    <!-- FLOATING HEARTS -->
+
     <div class="heart">♥</div>
     <div class="heart">♥</div>
     <div class="heart">♥</div>
 
-    <main class="screen" id="mainScreen">
+
+    <!-- BIRTHDAY SCREEN -->
+
+    <main
+        class="screen"
+        id="mainScreen"
+    >
 
         <div class="intro">
             A little surprise for you
         </div>
 
+
         <h1>
+
             Happy Birthday
-            <span class="name">Thomas ❤️</span>
+
+            <span class="name">
+                Thomas ❤️
+            </span>
+
         </h1>
 
+
         <p class="message">
+
             Before you see what's waiting for you...
+
             <br>
+
             close your eyes and make a wish. ✨
+
         </p>
+
+
+        <!-- CAKE -->
 
         <div class="cake">
 
-            <div class="flame" id="flame"></div>
+            <div
+                class="flame"
+                id="flame"
+            ></div>
+
 
             <div class="candle">
+
                 <div class="wick"></div>
+
             </div>
 
+
             <div class="cake-body">
+
                 <div class="icing"></div>
+
             </div>
 
         </div>
 
+
         <button onclick="blowCandle()">
+
             🕯️ Blow out the candle
+
         </button>
 
+
         <p class="hint">
+
             Make your wish first ❤️
+
         </p>
 
     </main>
 
+
+
+    <!-- SUCCESS SCREEN -->
+
     <div id="success">
 
         <div>
-            <h2>Wish made. ✨</h2>
+
+            <h2>
+                Wish made. ✨
+            </h2>
+
 
             <p>
+
                 And now...
+
                 <br><br>
+
                 there's something waiting for you. ❤️
+
             </p>
+
+
+            <button onclick="showLetter()">
+
+                💌 Open your surprise
+
+            </button>
+
         </div>
 
     </div>
 
 
+
+    <!-- LETTER SCREEN -->
+
+    <section id="letterScreen">
+
+        <div class="letter-light"></div>
+
+
+        <div
+            class="envelope-container"
+            id="envelopeContainer"
+            onclick="openLetter()"
+        >
+
+
+            <!-- ENVELOPE -->
+
+            <div class="envelope">
+
+                <div class="flap"></div>
+
+            </div>
+
+
+            <!-- WAX SEAL -->
+
+            <div class="seal">
+
+                ♥️
+
+            </div>
+
+
+            <!-- LETTER -->
+
+            <article
+                class="letter-paper"
+                id="letterPaper"
+            >
+
+
+                <h2 class="letter-title">
+
+                    My dearest Thomas ❤️
+
+                </h2>
+
+
+                <div class="letter-text">
+
+
+                    <p>
+
+                        I have something I want to tell you...
+
+                    </p>
+
+
+                    <br>
+
+
+                    <p>
+
+                        Something that felt too special
+                        to simply put into a normal message.
+
+                    </p>
+
+
+                    <br>
+
+
+                    <p>
+
+                        So I decided to leave you
+                        a little letter instead. ❤️
+
+                    </p>
+
+
+                    <br>
+
+
+                    <p>
+
+                        This is only the beginning...
+
+                    </p>
+
+
+                    <br>
+
+
+                    <p>
+
+                        Keep reading,
+                        because there's so much more
+                        waiting for you. ✨
+
+                    </p>
+
+
+                    <div class="letter-signature">
+
+                        With love ❤️
+
+                    </div>
+
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <p
+            class="open-hint"
+            id="openHint"
+        >
+
+            Click the envelope to open your letter 💌
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script>
+
 
         function blowCandle() {
 
-            const flame = document.getElementById("flame");
-            const success = document.getElementById("success");
+            const flame =
+                document.getElementById("flame");
 
-            // Blow out the flame
+            const success =
+                document.getElementById("success");
+
+
+            /* Blow out flame */
+
             flame.style.opacity = "0";
+
             flame.style.transform = "scale(0)";
 
-            // Wait for the flame to disappear
+
+            /* Show success screen */
+
             setTimeout(() => {
 
                 success.classList.add("show");
@@ -363,7 +1174,61 @@
 
         }
 
+
+
+        function showLetter() {
+
+            const success =
+                document.getElementById("success");
+
+            const letterScreen =
+                document.getElementById("letterScreen");
+
+
+            success.style.opacity = "0";
+
+            success.style.pointerEvents = "none";
+
+
+            setTimeout(() => {
+
+                letterScreen.classList.add("show");
+
+            }, 500);
+
+        }
+
+
+
+        function openLetter() {
+
+            const envelope =
+                document.getElementById(
+                    "envelopeContainer"
+                );
+
+            const hint =
+                document.getElementById(
+                    "openHint"
+                );
+
+
+            envelope.classList.add(
+                "letter-open"
+            );
+
+
+            hint.style.opacity = "0";
+
+
+            hint.style.pointerEvents = "none";
+
+        }
+
+
     </script>
 
+
 </body>
+
 </html>
