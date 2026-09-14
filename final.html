@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>One Last Thing ❤️</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #32152c,
+                    #120914 65%,
+                    #070509
+                );
+
+            color: white;
+
+            font-family: Georgia, serif;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            transition:
+                opacity 1.5s ease;
+        }
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 700px;
+
+            min-height: 500px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        /* -------------------------
+           TEXT
+        ------------------------- */
+
+
+        .line {
+
+            position: absolute;
+
+            width: 90%;
+
+            max-width: 650px;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s ease;
+
+            font-size:
+                clamp(22px, 5vw, 34px);
+
+            line-height: 1.6;
+
+            color: #f7d6e2;
+        }
+
+
+        .line.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .small {
+
+            font-size:
+                clamp(17px, 4vw, 22px);
+
+            color: #cbaebb;
+        }
+
+
+        .big {
+
+            font-size:
+                clamp(38px, 10vw, 70px);
+
+            color: #ffb3cb;
+
+            line-height: 1.2;
+        }
+
+
+        /* -------------------------
+           FINAL HEART
+        ------------------------- */
+
+
+        .final-heart {
+
+            font-size: 70px;
+
+            color: #ff8fb1;
+
+            opacity: 0;
+
+            transform: scale(0.5);
+
+            transition:
+                opacity 2s ease,
+                transform 2s ease;
+
+            text-shadow:
+                0 0 20px rgba(255,120,160,0.5),
+                0 0 60px rgba(255,80,130,0.3);
+        }
+
+
+        .final-heart.show {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+
+        }
+
+
+        /* -------------------------
+           FLOATING HEARTS
+        ------------------------- */
+
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            color:
+                rgba(255,170,200,0.25);
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            animation:
+                float 10s linear infinite;
+        }
+
+
+        .heart:nth-child(2) {
+
+            left: 15%;
+
+            animation-delay: 2s;
+        }
+
+
+        .heart:nth-child(3) {
+
+            left: 75%;
+
+            animation-delay: 5s;
+        }
+
+
+        .heart:nth-child(4) {
+
+            left: 45%;
+
+            animation-delay: 8s;
+        }
+
+
+        @keyframes float {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+
+                opacity: 0;
+            }
+
+            20% {
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* -------------------------
+           REPLAY
+        ------------------------- */
+
+
+        .replay {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: 1s ease;
+
+            color: #a98c9d;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+
+        .replay.show {
+
+            opacity: 0.7;
+
+            pointer-events: auto;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart">♥</div>
+
+    <div class="heart">♥</div>
+
+    <div class="heart">♥</div>
+
+    <div class="heart">♥</div>
+
+
+    <main class="container">
+
+
+        <div
+            class="line small"
+            id="line1"
+        >
+
+            Thomas...
+
+        </div>
+
+
+        <div
+            class="line"
+            id="line2"
+        >
+
+            You made this year
+            more beautiful simply
+            by being in it.
+
+        </div>
+
+
+        <div
+            class="line"
+            id="line3"
+        >
+
+            And these memories?
+
+        </div>
+
+
+        <div
+            class="line"
+            id="line4"
+        >
+
+            They're only the beginning. ❤️
+
+        </div>
+
+
+        <div
+            class="line"
+            id="line5"
+        >
+
+            I hope we make
+            a thousand more.
+
+        </div>
+
+
+        <div
+            class="line big"
+            id="line6"
+        >
+
+            I love you. ❤️
+
+        </div>
+
+
+        <div
+            class="line"
+            id="line7"
+        >
+
+            Happy Birthday,
+            my love.
+
+        </div>
+
+
+        <div
+            class="final-heart"
+            id="finalHeart"
+        >
+
+            ❤️
+
+        </div>
+
+
+    </main>
+
+
+    <div
+        class="replay"
+        id="replay"
+        onclick="location.reload()"
+    >
+
+        replay ❤️
+
+    </div>
+
+
+    <script>
+
+
+        const sequence = [
+
+            "line1",
+            "line2",
+            "line3",
+            "line4",
+            "line5",
+            "line6",
+            "line7"
+
+        ];
+
+
+        let current = 0;
+
+
+        function showNext() {
+
+
+            if (current > 0) {
+
+                document
+                    .getElementById(
+                        sequence[current - 1]
+                    )
+                    .classList.remove("show");
+
+            }
+
+
+            if (
+                current <
+                sequence.length
+            ) {
+
+                document
+                    .getElementById(
+                        sequence[current]
+                    )
+                    .classList.add("show");
+
+                current++;
+
+                setTimeout(
+                    showNext,
+                    3500
+                );
+
+            }
+
+            else {
+
+                setTimeout(() => {
+
+                    document
+                        .getElementById(
+                            "finalHeart"
+                        )
+                        .classList.add("show");
+
+
+                    document
+                        .getElementById(
+                            "replay"
+                        )
+                        .classList.add("show");
+
+                }, 1500);
+
+            }
+
+        }
+
+
+        /*
+         * Start after a short pause
+         */
+
+        setTimeout(
+            showNext,
+            1200
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
