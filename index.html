@@ -5,6 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>For Thomas ❤️</title>
+    /* =========================
+   LETTER DECORATIONS
+========================= */
+
+.flower {
+    position: absolute;
+    font-size: 35px;
+    opacity: 0.75;
+    filter: sepia(0.2);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* TOP LEFT FLOWER */
+
+.flower-top-left {
+    top: 20px;
+    left: 25px;
+    transform: rotate(-20deg);
+}
+
+/* TOP RIGHT LEAVES */
+
+.flower-top-right {
+    top: 25px;
+    right: 30px;
+    transform: rotate(25deg);
+}
+
+/* BOTTOM LEFT LEAVES */
+
+.flower-bottom-left {
+    bottom: 20px;
+    left: 30px;
+    transform: rotate(-20deg);
+}
+
+/* BOTTOM RIGHT FLOWER */
+
+.flower-bottom-right {
+    bottom: 20px;
+    right: 25px;
+    transform: rotate(20deg);
+}
+
+
+/* =========================
+   LITTLE HEARTS
+========================= */
+
+.little-heart {
+    position: absolute;
+    color: rgba(130, 50, 40, 0.55);
+    font-size: 24px;
+    pointer-events: none;
+}
+
+.heart-one {
+    top: 80px;
+    right: 70px;
+}
+
+.heart-two {
+    bottom: 80px;
+    left: 65px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   PAPER TEXTURE
+========================= */
+
+.letter-paper {
+    background-color: #efd6a6;
+
+    background-image:
+
+        radial-gradient(
+            rgba(120, 80, 40, 0.08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            135deg,
+            #f5dfb8,
+            #e6c68f
+        );
+
+    background-size:
+        8px 8px,
+        100% 100%;
+}
 
     <style>
 
@@ -751,7 +844,7 @@
 
             position: relative;
 
-            z-index: 2;
+            z-index: 3;
         }
 
         .letter-signature {
@@ -996,6 +1089,14 @@
                 class="letter-paper"
                 id="letterPaper"
             >
+                <div class="flower flower-top-left">🌸</div>
+<div class="flower flower-top-right">🌿</div>
+
+<div class="little-heart heart-one">♡</div>
+<div class="little-heart heart-two">♥</div>
+
+<div class="flower flower-bottom-left">🌿</div>
+<div class="flower flower-bottom-right">🌸</div>
 
 
                 <h2 class="letter-title">
