@@ -1177,6 +1177,14 @@
                         With love ❤️
 
                     </div>
+                    <div style="text-align:center; margin-top:35px;">
+
+    <button onclick="goToMemories()">
+        There's more… ❤️
+    </button>
+
+</div>
+
 
                     <div class="photo-container">
     <img src="photos/screenshot.png" alt="A special memory ❤️">
@@ -1290,6 +1298,18 @@
 
 
     </script>
+    function goToMemories() {
+
+    document.body.style.transition = "opacity 1.5s ease";
+
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+        window.location.href = "memories.html";
+    }, 1500);
+
+}
+
 
 
 </body>
