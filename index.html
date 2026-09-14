@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ❤️</title>
+
+    <title>For Thomas ❤️</title>
 
     <style>
         * {
@@ -18,7 +19,9 @@
             justify-content: center;
             align-items: center;
             font-family: Georgia, serif;
-            background: linear-gradient(135deg, #1a1025, #35152f, #160f22);
+            background:
+                radial-gradient(circle at top, #3b1838, transparent 50%),
+                linear-gradient(135deg, #120b1c, #2b1329, #0d0915);
             color: white;
             overflow: hidden;
         }
@@ -26,148 +29,238 @@
         .screen {
             text-align: center;
             padding: 30px;
-            max-width: 500px;
             width: 100%;
+            max-width: 550px;
         }
 
-        .small-text {
+        .intro {
             font-family: Arial, sans-serif;
-            font-size: 14px;
-            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #eab8ca;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #d9a9bd;
             margin-bottom: 20px;
         }
 
         h1 {
-            font-size: clamp(42px, 11vw, 70px);
-            line-height: 1.05;
-            margin-bottom: 15px;
+            font-size: clamp(44px, 12vw, 75px);
+            line-height: 1;
+            margin-bottom: 18px;
         }
 
         .name {
-            color: #ffb6cf;
+            color: #ffabc7;
+            display: block;
+            margin-top: 8px;
         }
 
-        .subtitle {
+        .message {
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            color: #dbcbd5;
+            color: #d9ccd5;
+            font-size: 15px;
+            line-height: 1.6;
             margin-bottom: 45px;
         }
 
+        /* CAKE */
+
         .cake {
             position: relative;
-            width: 180px;
-            height: 130px;
-            margin: 0 auto 35px;
+            width: 190px;
+            height: 180px;
+            margin: 0 auto 25px;
         }
 
-        .cake-top {
+        .cake-body {
             position: absolute;
             bottom: 0;
-            left: 10px;
-            width: 160px;
-            height: 70px;
-            background: #d9829b;
-            border-radius: 12px 12px 18px 18px;
-            box-shadow: inset 0 8px rgba(255,255,255,0.15);
+            left: 5px;
+            width: 180px;
+            height: 85px;
+            background: linear-gradient(#d97998, #b85e7c);
+            border-radius: 12px 12px 20px 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .icing {
             position: absolute;
-            top: 5px;
-            left: 0;
-            width: 180px;
-            height: 30px;
-            background: #ffe2eb;
+            top: -8px;
+            left: -5px;
+            width: 190px;
+            height: 35px;
+            background: #ffe1eb;
             border-radius: 50%;
         }
 
+        .icing::after {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: 17px;
+            width: 15px;
+            height: 25px;
+            background: #ffe1eb;
+            border-radius: 0 0 10px 10px;
+            box-shadow:
+                55px 0 #ffe1eb,
+                110px 0 #ffe1eb;
+        }
+
+        /* CANDLE */
+
         .candle {
             position: absolute;
-            width: 14px;
-            height: 48px;
-            background: repeating-linear-gradient(
-                45deg,
-                #fff,
-                #fff 6px,
-                #e89ab1 6px,
-                #e89ab1 12px
-            );
-            left: 83px;
-            top: 5px;
-            border-radius: 4px;
+            z-index: 3;
+            left: 88px;
+            top: 35px;
+            width: 16px;
+            height: 60px;
+            border-radius: 5px;
+            background:
+                repeating-linear-gradient(
+                    -45deg,
+                    #fff,
+                    #fff 7px,
+                    #f49ab4 7px,
+                    #f49ab4 14px
+                );
+        }
+
+        .wick {
+            position: absolute;
+            left: 6px;
+            top: -7px;
+            width: 4px;
+            height: 9px;
+            background: #29202a;
+            border-radius: 3px;
         }
 
         .flame {
             position: absolute;
-            left: 84px;
-            top: -28px;
-            width: 13px;
-            height: 25px;
-            background: #ffcc4d;
-            border-radius: 50% 50% 50% 50%;
-            box-shadow: 0 0 18px #ff9d00;
-            animation: flicker 0.8s infinite alternate;
+            z-index: 5;
+            left: 86px;
+            top: 0;
+            width: 20px;
+            height: 35px;
+            background: #ffd45c;
+            border-radius: 50% 50% 45% 45%;
+            box-shadow:
+                0 0 12px #ffbd32,
+                0 0 35px #ff8c00;
+            transform-origin: bottom center;
+            animation: flicker 0.7s infinite alternate;
+            transition: 0.5s ease;
+        }
+
+        .flame::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            bottom: 4px;
+            width: 10px;
+            height: 18px;
+            background: #fff5bd;
+            border-radius: 50%;
         }
 
         @keyframes flicker {
             from {
-                transform: scale(1) rotate(-3deg);
+                transform: rotate(-4deg) scale(1);
             }
+
             to {
-                transform: scale(1.12) rotate(3deg);
+                transform: rotate(4deg) scale(1.08);
             }
         }
 
-        .button {
+        /* BUTTON */
+
+        button {
             border: none;
-            padding: 15px 28px;
-            border-radius: 30px;
+            padding: 15px 27px;
+            border-radius: 40px;
             background: #ff8fb1;
             color: white;
             font-size: 15px;
             cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255,143,177,0.25);
             transition: 0.3s;
-            box-shadow: 0 8px 25px rgba(255, 143, 177, 0.25);
         }
 
-        .button:hover {
+        button:hover {
             transform: translateY(-3px);
             background: #ff719d;
         }
 
         .hint {
-            margin-top: 15px;
+            margin-top: 13px;
             font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: #aa91a0;
+            font-size: 11px;
+            color: #927c8d;
         }
+
+        /* HIDDEN */
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* SUCCESS MESSAGE */
+
+        #success {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background: rgba(15,8,20,0.96);
+            opacity: 0;
+            pointer-events: none;
+            transition: 1s ease;
+        }
+
+        #success.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #success h2 {
+            font-size: clamp(35px, 10vw, 60px);
+            margin-bottom: 15px;
+            color: #ffb3cb;
+        }
+
+        #success p {
+            font-family: Arial, sans-serif;
+            color: #d9ccd5;
+        }
+
+        /* FLOATING HEARTS */
 
         .heart {
             position: fixed;
-            color: rgba(255, 182, 207, 0.25);
+            bottom: -30px;
+            color: rgba(255, 174, 202, 0.25);
+            animation: float 9s linear infinite;
             font-size: 20px;
-            animation: float 8s infinite linear;
         }
 
         .heart:nth-child(1) {
             left: 10%;
-            bottom: -30px;
-            animation-delay: 0s;
         }
 
         .heart:nth-child(2) {
-            left: 80%;
-            bottom: -30px;
+            left: 75%;
             animation-delay: 3s;
         }
 
         .heart:nth-child(3) {
             left: 45%;
-            bottom: -30px;
-            animation-delay: 5s;
+            animation-delay: 6s;
         }
 
         @keyframes float {
@@ -175,9 +268,11 @@
                 transform: translateY(0) rotate(0);
                 opacity: 0;
             }
+
             20% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-110vh) rotate(360deg);
                 opacity: 0;
@@ -192,50 +287,82 @@
     <div class="heart">♥</div>
     <div class="heart">♥</div>
 
-    <main class="screen">
+    <main class="screen" id="mainScreen">
 
-        <div class="small-text">A little surprise for you</div>
+        <div class="intro">
+            A little surprise for you
+        </div>
 
         <h1>
-            Happy Birthday,
-            <span class="name">Shundrappii</span> ❤️
+            Happy Birthday
+            <span class="name">Thomas ❤️</span>
         </h1>
 
-        <p class="subtitle">
+        <p class="message">
             Before you see what's waiting for you...
-            make a wish. ✨
+            <br>
+            close your eyes and make a wish. ✨
         </p>
 
         <div class="cake">
+
             <div class="flame" id="flame"></div>
-            <div class="candle"></div>
-            <div class="cake-top">
+
+            <div class="candle">
+                <div class="wick"></div>
+            </div>
+
+            <div class="cake-body">
                 <div class="icing"></div>
             </div>
+
         </div>
 
-        <button class="button" onclick="blowCandle()">
+        <button onclick="blowCandle()">
             🕯️ Blow out the candle
         </button>
 
         <p class="hint">
-            Make a wish first... ❤️
+            Make your wish first ❤️
         </p>
 
     </main>
 
-    <script>
-        function blowCandle() {
-            const flame = document.getElementById("flame");
+    <div id="success">
 
-            flame.style.transition = "0.5s";
+        <div>
+            <h2>Wish made. ✨</h2>
+
+            <p>
+                And now...
+                <br><br>
+                there's something waiting for you. ❤️
+            </p>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function blowCandle() {
+
+            const flame = document.getElementById("flame");
+            const success = document.getElementById("success");
+
+            // Blow out the flame
             flame.style.opacity = "0";
             flame.style.transform = "scale(0)";
 
+            // Wait for the flame to disappear
             setTimeout(() => {
-                alert("Your wish has been made. ❤️");
-            }, 600);
+
+                success.classList.add("show");
+
+            }, 800);
+
         }
+
     </script>
 
 </body>
