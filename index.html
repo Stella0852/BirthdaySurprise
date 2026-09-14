@@ -1012,18 +1012,19 @@
         </div>
 
 
-        <button onclick="blowCandle()">
+        <button onclick="startBlowing()">
 
-            🕯️ Blow out the candle
+    🎤 Blow out the candle
 
-        </button>
+</button>
 
 
-        <p class="hint">
+<p class="hint" id="blowHint">
 
-            Make your wish first ❤️
+    Tap the button, then blow into the microphone ❤️
 
-        </p>
+</p>
+
 
     </main>
 
@@ -1290,6 +1291,101 @@
             hint.style.pointerEvents = "none";
 
         }
+let microphoneStarted = false;
+let audioContext;
+let analyser;
+let microphone;
+let dataArray;
+
+async function startBlowing() {
+
+    if (microphoneStarted) return;
+
+    try {
+
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+                audio: true
+            });
+
+        microphoneStarted = true;
+
+        const blowHint =
+            document.getElementById("blowHint");
+
+        blowHint.textContent =
+            "Now blow into the microphone... 💨❤️";
+
+        audioContext =
+            new (window.AudioContext ||
+            window.webkitAudioContext)();
+
+        analyser =
+            audioContext.createAnalyser();
+
+        microphone =
+            audioContext.createMediaStreamSource(stream);
+
+        microphone.connect(analyser);
+
+        analyser.fftSize = 256;
+
+        const bufferLength =
+            analyser.frequencyBinCount;
+
+        dataArray =
+            new Uint8Array(bufferLength);
+
+        detectBlow();
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert(
+            "Please allow microphone access so you can blow out the candle ❤️"
+        );
+
+    }
+
+}
+
+
+function detectBlow() {
+
+    analyser.getByteTimeDomainData(dataArray);
+
+    let sum = 0;
+
+    for (let i = 0; i < dataArray.length; i++) {
+
+        const value =
+            (dataArray[i] - 128) / 128;
+
+        sum += value * value;
+
+    }
+
+    const volume =
+        Math.sqrt(sum / dataArray.length);
+
+
+    /*
+       Detect a strong burst of sound.
+       A normal quiet room should stay below this.
+    */
+
+    if (volume > 0.18) {
+
+        blowCandle();
+
+        return;
+
+    }
+
+    requestAnimationFrame(detectBlow);
+
+}
 
 
     </script>
